@@ -13,24 +13,23 @@ public class CapacitorSmsRetrieverPlugin: CAPPlugin {
 
     @objc func present(_ call: CAPPluginCall) {
         let numberOfCharacters = call.getInt("numberOfCharacters") ?? 4
-        let pinView = PinViewController(numberOfCharacters:numberOfCharacters,returnCall: call)
+      //  let pinView = PinViewController(numberOfCharacters:numberOfCharacters,returnCall: call)
         
-        DispatchQueue.main.async {
-            self.bridge?.viewController?.present(pinView, animated: true)
-           }
-           
+//        DispatchQueue.main.async {
+//            self.bridge?.viewController?.present(pinView, animated: true)
+//           }
+//           
        }
 }
 
 class PinViewController: UIViewController, KAPinFieldDelegate {
     lazy var centerStackView = UIStackView()
-    @IBOutlet var pinCodeTextField: KAPinField!
-//    lazy var pinCodeTextField = KAPinField()
+    lazy var pinCodeTextField = KAPinField()
     private var returnCall : CAPPluginCall
     private var numberOfCharacters:Int
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeUI()
+       // makeUI()
     }
 
     required init(numberOfCharacters: Int, returnCall: CAPPluginCall) {
